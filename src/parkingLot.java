@@ -13,7 +13,8 @@ public class parkingLot {
     // check if parking lot full 
   }
   public void entering(Car c, time t) {
-    // if not full - set in time
+    // if not full - create ticket
+    // set in time
     // add car to list
   }
   public void leaving(Car c, time t) {
