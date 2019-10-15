@@ -31,6 +31,7 @@ public class ParkingLot {
     // set difference to totaltime
     // totalpay = totaltime * price
     // return totalpay
+  }
   public int total() {
     //total += totalpay
     // return total
