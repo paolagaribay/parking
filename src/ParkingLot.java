@@ -13,7 +13,7 @@ public class parkingLot {
     // check if parking lot full 
   }
   public void entering(Car c, time t) {
-    // if not full - create ticket
+    // if not full - create ticket of rand id
     // set in time
     // add car to list
   }
@@ -22,7 +22,7 @@ public class parkingLot {
     // pay ticket
     // remove car from list
   }
-  public int pay(ticket t) {
+  public int pay(Ticket t) {
     // get in time
     // get out time
     // set difference to totaltime
