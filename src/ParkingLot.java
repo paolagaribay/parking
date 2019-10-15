@@ -4,6 +4,7 @@ public class ParkingLot {
   // price
   // list of cars parked
   // counter
+  // total
   parkingLot(int c, int p) {
     // set capacity
     // set price
@@ -30,4 +31,8 @@ public class ParkingLot {
     // set difference to totaltime
     // totalpay = totaltime * price
     // return totalpay
+  public int total() {
+    //total += totalpay
+    // return total
+  }
 }
