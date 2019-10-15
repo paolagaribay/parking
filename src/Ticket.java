@@ -1,5 +1,5 @@
 
-public class Ticket {
+public class Ticket { // extends Car??
   // in time
   // out time
   // ticket id
