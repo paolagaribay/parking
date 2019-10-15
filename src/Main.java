@@ -7,5 +7,6 @@ public class Main {
         // create car for each entering
         // park car
         // remove car for each leaving
+        // get total money made
     }
 }
