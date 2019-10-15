@@ -1,6 +1,6 @@
 import java.io.*; 
 
-public class main {
+public class Main {
   public static void main(String[] args) {
         // read file
         // create parking lot w/ capacity & price
