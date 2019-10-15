@@ -1,5 +1,5 @@
 
-public class parkingLot {
+public class ParkingLot {
   // capacity
   // price
   // list of cars parked
