@@ -15,10 +15,12 @@ public class parkingLot {
   public void entering(Car c, time t) {
     // if not full - create ticket of rand id
     // set in time
+    // give ticket to car
     // add car to list
   }
   public void leaving(Car c, time t) {
-    // if car in list - set out time
+    // if car in list - get ticket
+    // set out time
     // pay ticket
     // remove car from list
   }
