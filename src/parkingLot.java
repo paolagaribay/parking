@@ -22,4 +22,10 @@ public class parkingLot {
     // pay ticket
     // remove car from list
   }
+  public int pay(ticket t) {
+    // get in time
+    // get out time
+    // set difference to totaltime
+    // totalpay = totaltime * price
+    // return totalpay
 }
