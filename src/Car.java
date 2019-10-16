@@ -1,10 +1,11 @@
 
 public class Car {
-  // carid
+  String carID;
   // ticket
-  Car(String id) {
-   // set carid
-  }
+  public Car(String id) {
+    carID = id;
+    System.out.println("Car created");
+  } /**
   public String getCarId() {
     // return carid
   }
@@ -13,4 +14,5 @@ public class Car {
   }
   public String getTicket() {
     // return ticket
+  } **/
 }

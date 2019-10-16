@@ -1,15 +1,16 @@
 
-public class Ticket { // extends Car??
+public class Ticket {
   // in time
   // out time
-  // ticket id
-  Ticket(String id) {
-    // set id
-  }
-  public void setInTime(time t) {
+  String ticketId;
+  public Ticket(String id) {
+    ticketId = id;
+    System.out.println("Ticket created");
+  } /**
+  public void setInTime(Date t) {
     // set time
   }
-  public void setOutTime(time t) {
+  public void setOutTime(Date t) {
     // set time
   }
   public time getInTime() {
@@ -18,7 +19,7 @@ public class Ticket { // extends Car??
   public time getOutTime() {
     // return time
   }
-  public String getTicket(String tickedid) {
+  public String getTicket(String ticketid) {
     // return ticketid
-  }
+  } **/
 }

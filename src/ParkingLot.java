@@ -1,25 +1,29 @@
+import java.util.ArrayList;
+import java.util.List;
 
 public class ParkingLot {
-  // capacity
-  // price
+  int capacity;
+  double price;
+  List<Car> lot;
   // list of cars parked
   // counter
   // total
-  parkingLot(int c, int p) {
-    // set capacity
-    // set price
-    // create list
-  }
+  public ParkingLot(int c, double p) {
+    capacity = c;
+    price = p;
+    lot = new ArrayList<Car>();
+    System.out.println("Parking lot created");
+  } /**
   public boolean checkCapacity() {
     // check if parking lot full 
   }
-  public void entering(Car c, time t) {
+  public void entering(Car c, Date t) {
     // if not full - create ticket of rand id
     // set in time
     // give ticket to car
     // add car to list
   }
-  public void leaving(Car c, time t) {
+  public void leaving(Car c, Date t) {
     // if car in list - get ticket
     // set out time
     // pay ticket
@@ -35,5 +39,5 @@ public class ParkingLot {
   public int total() {
     //total += totalpay
     // return total
-  }
+  } **/
 }
