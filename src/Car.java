@@ -1,18 +1,18 @@
 
 public class Car {
-  String carID;
-  // ticket
+  String carId;
+  Ticket t;
   public Car(String id) {
-    carID = id;
+    carId = id;
     System.out.println("Car created");
-  } /**
+  }
   public String getCarId() {
-    // return carid
+    return carId;
   }
-  public void set Ticket(String t //or Ticket t) {
-    // set ticket
+  public void setTicket(Ticket ti) {
+    t = ti;
   }
-  public String getTicket() {
-    // return ticket
-  } **/
+  public Ticket getTicket() {
+    return t;
+  }
 }

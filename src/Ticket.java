@@ -1,25 +1,24 @@
 
 public class Ticket {
-  // in time
-  // out time
-  String ticketId;
-  public Ticket(String id) {
-    ticketId = id;
-    System.out.println("Ticket created");
-  } /**
-  public void setInTime(Date t) {
-    // set time
-  }
-  public void setOutTime(Date t) {
-    // set time
-  }
-  public time getInTime() {
-    // return time
-  }
-  public time getOutTime() {
-    // return time
-  }
-  public String getTicket(String ticketid) {
-    // return ticketid
-  } **/
+    Date inTime;
+    Date outTime;
+    String ticketId;
+    public Ticket(String id, Date in, Date out) {
+        ticketId = id;
+        inTime = in;
+        outTime = out; //maybe remove
+        System.out.println("Ticket created");
+    }
+    public void setOutTime(Date t) {
+        outTime = t;
+    }
+    public Date getInTime() {
+        return inTime;
+    }
+    public Date getOutTime() {
+        return outTime;
+    }
+    public String getTicket() {
+      return ticketId;
+    }
 }
