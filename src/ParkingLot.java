@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.time.LocalTime;
 
 public class ParkingLot {
   int capacity;
@@ -17,9 +18,10 @@ public class ParkingLot {
   public void entering(Car c) {
       count++;
       if (count <= capacity) {
-          Date time = new Date();
-          Ticket t = new Ticket("T" +c.getCarId, time, null); //set time
-          c.setTicket(t); //pass/set object to object
+          LocalTime in = LocalTime.now();
+          System.out.println(in);
+          c.setTicket();
+          c.getTicket().setInTime(in);
           lot.add(c);
           System.out.println("Car parked");
       }
@@ -31,30 +33,34 @@ public class ParkingLot {
     // give ticket to car
     // add car to list
   }
-  public void leaving(Car c) {
-      if (c in lot) {
-          if (c.getTicket != null) {
-              Date t = new Date();
-              (c.getTicket).setOutTime(t);
-              p = pay(c.getTicket);
-              System.out.println("cost: " + p);
-              //pay
-              count--;
-              lot.remove(c);
-              System.out.println("Car left");
-          }
-          else {
-              System.out.println("No ticket shown");
+  public void leaving(String c) {
+      int k = 0;
+      for (int i = 0; i < lot.size(); i++) {
+          if (lot.get(i).getCarId().equals(c)) {
+              LocalTime out = LocalTime.now();
+              System.out.println(out);
+              if (lot.get(i).getTicket() != null) {
+                  lot.get(i).getTicket().setOutTime(out);
+                  //pay
+                  lot.remove(lot.get(i));
+                  count--;
+                  System.out.println("Car left");
+              }
+              else {
+                  System.out.println("No ticket shown");
+              }
+              k = 1;
           }
       }
-      else {
+      if (k != 1) {
           System.out.println("Car not in lot");
       }
+
     // if car in list - get ticket
     // set out time
     // pay ticket
     // remove car from list
-  }
+  } /*
   public double pay(Ticket t) {
     i = t.geInTime();// get in time
     o = t.getOutTime();// get out time
@@ -65,5 +71,5 @@ public class ParkingLot {
   }
   public double getTotal() {
       return total;
-  }
+  } */
 }

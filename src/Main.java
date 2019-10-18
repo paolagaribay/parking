@@ -25,7 +25,12 @@ public class Main {
       while (s.hasNextLine()) {
         String p = s.next();
         String carId = s.next();
-        sleep(3); //simulate waiting
+        try {
+            Thread.sleep(2000);
+        }
+        catch(InterruptedException e){
+            System.out.println(e);
+        } //simulate waiting
         if (p.equals("Entering")) {
           System.out.println(carId + " is entering");
           Car c = new Car(carId);
@@ -33,7 +38,7 @@ public class Main {
         }
         else if (p.equals("Leaving")) {
           System.out.println(carId + " is leaving");
-          pl.leaving(c);
+          pl.leaving(carId);
         }
         else {
           System.out.println("Error: line should read 'Entering CarID' or 'Leaving CarID'");
@@ -41,7 +46,7 @@ public class Main {
       }
       s.close();
       System.out.println("End of parking log");
-      System.out.println("Money made: " + pl.getTotal());
+      //System.out.println("Money made: " + pl.getTotal());
     }
     catch(IOException e) {
       e.printStackTrace();

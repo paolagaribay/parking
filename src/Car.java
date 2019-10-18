@@ -9,8 +9,8 @@ public class Car {
   public String getCarId() {
     return carId;
   }
-  public void setTicket(Ticket ti) {
-    t = ti;
+  public void setTicket() {
+    t = new Ticket("T"+carId);
   }
   public Ticket getTicket() {
     return t;
