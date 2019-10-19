@@ -60,10 +60,6 @@ public class Main {
               continue;
             }
 
-          if (carId == null) {
-            System.out.println("Error: license plate not recorded");
-            continue;
-          }
           if (p.equals("Entering")) { // park car
             Car c = new Car(carId);
             System.out.println("Car " + carId + " has arrived at lot.");
