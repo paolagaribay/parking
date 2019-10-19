@@ -1,28 +1,30 @@
-import java.time.LocalTime;
+import java.util.Date;
 
 public class Ticket {
-    LocalTime inTime;
-    LocalTime outTime;
+    Date inTime;
+    Date outTime;
     String ticketId;
+    long totalTime;
     public Ticket(String id) {
         ticketId = id;
-        System.out.println("Ticket created");
     }
-    public void setInTime(LocalTime in) {
+    public void setInTime(Date in) {
         inTime = in;
-        System.out.println("Time in set");
     }
-    public void setOutTime(LocalTime out) {
+    public void setOutTime(Date out) {
         outTime = out;
-        System.out.println("Time out set");
     }
-    public LocalTime getInTime() {
+    public Date getInTime() {
         return inTime;
     }
-    public LocalTime getOutTime() {
+    public Date getOutTime() {
         return outTime;
     }
     public String getTicketId() {
       return ticketId;
+    }
+    public long totalTime() {
+        totalTime = outTime.getTime() - inTime.getTime();
+        return totalTime;
     }
 }

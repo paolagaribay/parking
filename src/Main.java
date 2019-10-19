@@ -1,7 +1,7 @@
 import java.io.File;
 import java.io.IOException;
 import java.util.Scanner;
-
+import java.util.Formatter;
 
 public class Main {
   public static void main(String[] args) {
@@ -16,12 +16,9 @@ public class Main {
 
       capacity = s.nextInt();
       price = s.nextDouble();
-
-      System.out.println("Capacity: " + capacity);
-      System.out.println("Price per hour: " + price);
-
       ParkingLot pl = new ParkingLot(capacity, price);
-
+      System.out.println("This parking lot is $" + price + " the hour. Total capacity: " + capacity);
+      System.out.println("");
       while (s.hasNextLine()) {
         String p = s.next();
         String carId = s.next();
@@ -32,27 +29,25 @@ public class Main {
             System.out.println(e);
         } //simulate waiting
         if (p.equals("Entering")) {
-          System.out.println(carId + " is entering");
           Car c = new Car(carId);
+          System.out.println("Car "+carId + " has arrived at lot.");
           pl.entering(c);
         }
         else if (p.equals("Leaving")) {
-          System.out.println(carId + " is leaving");
+          System.out.println("Car "+carId + " is leaving the lot.");
           pl.leaving(carId);
         }
         else {
-          System.out.println("Error: line should read 'Entering CarID' or 'Leaving CarID'");
+          System.out.println("Error: line should start with 'Entering' or 'Leaving'");
         }
+        System.out.println("");
       }
       s.close();
-      System.out.println("End of parking log");
-      //System.out.println("Money made: " + pl.getTotal());
+      System.out.println("End of parking log.");
+      System.out.println("Total money made: " + String.format("%.02f",pl.getTotal()));
     }
     catch(IOException e) {
       e.printStackTrace();
     }
-        // park car
-        // remove car for each leaving
-        // get total money made
   }
 }
