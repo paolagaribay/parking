@@ -43,7 +43,7 @@ public class ParkingLot {
                   System.out.println("Car successfully left.");
               }
               else {
-                  System.out.println("Error: No ticket shown.");
+                  System.out.println("Error: No ticket shown. Return with ticket.");
               }
               k = 1;
           }
