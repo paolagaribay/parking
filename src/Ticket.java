@@ -5,6 +5,7 @@ public class Ticket {
     Date outTime;
     String ticketId;
     long totalTime;
+
     public Ticket(String id) {
         ticketId = id;
     }
@@ -23,7 +24,7 @@ public class Ticket {
     public String getTicketId() {
       return ticketId;
     }
-    public long totalTime() {
+    public long totalTime() {   // calculate time difference
         totalTime = outTime.getTime() - inTime.getTime();
         return totalTime;
     }

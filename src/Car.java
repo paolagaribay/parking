@@ -1,6 +1,7 @@
 public class Car {
   String carId;
   Ticket t;
+
   public Car(String id) {
     carId = id;
   }
