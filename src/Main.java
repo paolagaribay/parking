@@ -44,7 +44,7 @@ public class Main {
         }
 
         try {   // simulate waiting time
-          Thread.sleep(2000);
+          Thread.sleep(1000);
         } catch (InterruptedException e) {
           System.out.println(e);
         }
@@ -86,6 +86,8 @@ public class Main {
       s.close();
       System.out.println("End of parking log.");
       System.out.println("Total money made: " + String.format("%.02f",pl.getTotal()));
+      System.out.println("Cars left in lot: "+pl.getCarsLeft());
+      System.out.println("Spaces left: "+pl.getCapacity());
     }
     catch(IOException e) {
       e.printStackTrace();

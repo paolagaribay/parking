@@ -26,6 +26,7 @@ public class ParkingLot {
       }
       else {
           System.out.println("Error: Parking lot is full. Car may not enter.");
+          count--;
       }
   }
   public void leaving(String c) {
@@ -58,5 +59,11 @@ public class ParkingLot {
   }
   public double getTotal() {
       return total;
+  }
+  public int getCapacity() {
+      return capacity-count;
+  }
+  public int getCarsLeft() {
+      return lot.size();
   }
 }

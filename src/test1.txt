@@ -1,13 +1,18 @@
-5
 10
-DKV-6052
-Entering
+5
 
-Leaving DKV-6052 jkl
-j NWM-9276
+Entering DKV-6052
 Entering BRH-8108
 Entering SPR-6518
+Leaving DKV-6052
+Entering DJK-3245
+Leaving BRH-8108
+Entering NWM-9276
 Entering BDW-9430
 Entering RGW-6612
+Leaving RGW-6612
+Entering NEI-5453
+Entering NEK-3243
+Leaving SPR-6518
 Leaving NWM-9276
-Leaving
+Leaving DJK-3245

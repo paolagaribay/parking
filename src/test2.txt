@@ -1,1 +1,19 @@
+5 7
 
+Entering DKV-6052
+Entering BRH-8108
+Entering SPR-6518
+Leaving DKV-6052
+Leaving NWM-9276
+Entering DJK-3245
+Leaving BRH-8108
+Entering NWM-9276
+Entering BDW-9430
+Entering RGW-6612
+Leaving RGW-6612
+Entering NEI-5453
+Entering NEK-3243
+Entering EOD-3245
+Leaving SPR-6518
+Entering OWM-8294
+Leaving
