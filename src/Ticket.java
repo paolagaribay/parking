@@ -1,10 +1,10 @@
 import java.util.Date;
 
 public class Ticket {
-    Date inTime;
-    Date outTime;
-    String ticketId;
-    long totalTime;
+    private Date inTime;
+    private Date outTime;
+    private String ticketId;
+    private long totalTime;
 
     public Ticket(String id) {
         ticketId = id;
