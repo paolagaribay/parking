@@ -1,6 +1,6 @@
 public class Car {
-  String carId;
-  Ticket t;
+  private String carId;
+  private Ticket t;
 
   public Car(String id) {
     carId = id;
