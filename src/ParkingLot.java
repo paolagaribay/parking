@@ -3,11 +3,11 @@ import java.util.List;
 import java.util.ArrayList;
 
 public class ParkingLot {
-  int capacity;
-  double price;
-  List<Car> lot;
-  int count;
-  double total;
+  private int capacity;
+  private double price;
+  private List<Car> lot;
+  private int count;
+  private double total;
 
   public ParkingLot(int c, double p) {
     capacity = c;
