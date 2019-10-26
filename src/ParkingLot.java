@@ -6,18 +6,25 @@ public class ParkingLot {
 
   int capacity;
   double price;
-  List<Car> lot;
   int count;
   double total;
-  String policies;
   double discount;
+  YellowLot y;
+  GreenLot g;
+  BlueLot b;
 
   public ParkingLot() {
-    //capacity = 0;
-    //price = 0;
-    //lot = null;
-    //discount = 0;
-    //policies = "";
+    y = new YellowLot();
+    g = new GreenLot();
+    b = new BlueLot();
+
+    System.out.println("Welcome! We have 3 parking lot groups available.\n");
+    System.out.println("The YellowLot has a price of " + y.getPrice() + ", a capacity of " + y.getCapacity() + ", a discount of " +
+            y.getDiscount() + ", and their policies are " + y.getPolicies() + ".\n");
+    System.out.println("The GreenLot has a price of " + g.getPrice() + ", a capacity of " + g.getCapacity() + ", a discount of " +
+            g.getDiscount() + ", and their policies are " + g.getPolicies() + ".\n");
+    System.out.println("The BlueLot has a price of " + b.getPrice() + ", a capacity of " + b.getCapacity() + ", a discount of " +
+            b.getDiscount() + ", and their policies are " + b.getPolicies() + ".\n");
   }
   public double getPrice() {
       return price;
@@ -37,8 +44,18 @@ public class ParkingLot {
   public int getCarsLeft() {
       return lot.size();
   }
-
+  public boolean isFull() {
+      if (capacity-count == 0) {
+          return true;
+      }
+      else {
+          return false;
+      }
+  }
   public void entering(Car c) {
+      System.out.println("")
+  }
+  public void parking(Car c, List<Car> lot) {
       count++;
       if (count <= capacity) {
           Date in = new Date();

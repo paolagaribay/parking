@@ -2,6 +2,10 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Scanner;
 import java.util.Formatter;
+import java.util.Collections;
+import java.util.List;
+import java.util.ArrayList;
+
 
 public class Main {
 
@@ -9,7 +13,7 @@ public class Main {
     //int capacity = 0;
     //double price = 0;
 
-    if(args.length < 1) {
+    if (args.length < 1) {
       System.out.println("Error, usage: java Main.java inputfile");
       System.exit(1);
     }
@@ -31,23 +35,12 @@ public class Main {
         System.out.println("Error: Price not valid");
         System.exit(1);
       }*/
-      System.out.println("Welcome! We have 3 parking lot groups available.\n");
-      YellowLot y = new YellowLot();
-      System.out.println("The YellowLot has a price of "+y.getPrice()+", a capacity of "+y.getCapacity()+", a discount of "+
-              y.getDiscount()+", and their policies are "+y.getPolicies()+".\n");
-
-      BlueLot b = new BlueLot();
-      System.out.println("The BlueLot has a price of "+b.getPrice()+", a capacity of "+b.getCapacity()+", a discount of "+
-              b.getDiscount()+", and their policies are "+b.getPolicies()+".\n");
-
-      GreenLot g = new GreenLot();
-      System.out.println("The YellowLot has a price of "+g.getPrice()+", a capacity of "+g.getCapacity()+", a discount of "+
-              g.getDiscount()+", and their policies are "+g.getPolicies()+".\n");
       ParkingLot pl = new ParkingLot();
+
       while (s.hasNextLine()) {
         String line = s.nextLine();
         Scanner ls = new Scanner(line);
-        if(line.isEmpty()) {
+        if (line.isEmpty()) {
           continue;
         }
 
@@ -64,27 +57,27 @@ public class Main {
 
             if (ls.hasNext()) {
               System.out.println("Error: extra input in line. Line should read 'Entering/Leaving CarID'\n");
-              while(ls.hasNext()) {
+              while (ls.hasNext()) {
                 ls.next();
               }
               continue;
             }
 
             if (p.equals("Entering")) { // park car
-                Car c = new Car(carId);
-                System.out.println("Car " + carId + " has arrived at lot.");
-                pl.entering(c);
+              Car c = new Car(carId);
+              System.out.println("Car " + carId + " has arrived at lot.");
+              pl.entering(c);
             }
             else if (p.equals("Leaving")) { // remove car
-                System.out.println("Car " + carId + " is leaving the lot.");
-                pl.leaving(carId);
+              System.out.println("Car " + carId + " is leaving the lot.");
+              pl.leaving(carId);
             }
             else {
-                System.out.println("Error: line should start with 'Entering' or 'Leaving'");
+              System.out.println("Error: line should start with 'Entering' or 'Leaving'");
             }
             System.out.println("");
 
-          }catch (java.util.NoSuchElementException e) {
+          } catch (java.util.NoSuchElementException e) {
             System.out.println("Error: line should read 'Entering/Leaving CarID'\n");
             continue;
           }
@@ -93,12 +86,10 @@ public class Main {
       }
       s.close();
       System.out.println("End of parking log.");
-      System.out.println("Total money made: " + String.format("%.02f",pl.getTotal()));
-      System.out.println("Cars left in lot: "+pl.getCarsLeft());
-      System.out.println("Spaces left: "+pl.getCapacity());
-    }
-    catch(IOException e) {
+      System.out.println("Total money made: " + String.format("%.02f", pl.getTotal()));
+      System.out.println("Cars left in lot: " + pl.getCarsLeft());
+      System.out.println("Spaces left: " + pl.getCapacity());
+    } catch (IOException e) {
       e.printStackTrace();
     }
   }
-}
