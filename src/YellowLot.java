@@ -10,5 +10,6 @@ public class YellowLot extends Groups {
         lot = new ArrayList<Car>();
         policies = "Here are our policies";
         System.out.println("YellowLot created.");
+        count = 0;
     }
 }

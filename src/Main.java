@@ -37,12 +37,15 @@ public class Main {
           try {
             String p = ls.next();    // check if entering or leaving
             String carId = ls.next();    // get car id
-            int choice = ls.nextInt();
+            int choice = 0;
+            if (ls.hasNext()) {
+              choice = ls.nextInt();
 
             if (!(choice == 0 || choice == 1 || choice == 2 || choice == 3)) {
-                System.out.println("Error: Choose 1 for YellowLot, 2 for GreenLot, 3 for BlueLot, or 0 for no choice");
-                continue;
+              System.out.println("Error: Choose 1 for YellowLot, 2 for GreenLot, 3 for BlueLot, or 0 for no choice");
+              continue;
             }
+          }
 
             if (ls.hasNext()) {
               System.out.println("Error: extra input in line. Line should read 'Entering/Leaving CarID Choice(optional)'\n");
@@ -75,7 +78,6 @@ public class Main {
       System.out.println("End of parking log.");
       System.out.println("Total money made: " + String.format("%.02f", pl.getTotal()));
       System.out.println("Cars left in lot: " + pl.getCarsLeft());
-      System.out.println("Spaces left: " + pl.getCapacity());
     } catch (IOException e) {
       e.printStackTrace();
     }

@@ -2,20 +2,20 @@ Entering car1 1
 Entering car2 2
 Entering car3 3
 Entering car4 0
-Leaving car2 0
+Leaving car2
 Entering car5 1
 Entering car6 1
 Leaving car3 0
 Entering car7 0
 Entering car8 3
 Entering car9 0
-Leaving car7 0
+Leaving car7
 Entering car10 2
-Leaving car9 0
+Leaving car9
 Entering car11 1
 Entering car12 0
-Leaving car1 0
-Leaving car12 0
-Leaving car11 0
-Leaving car10 0
-Leaving car4 0
+Leaving car1
+Leaving car12
+Leaving car11
+Leaving car10
+Leaving car4
