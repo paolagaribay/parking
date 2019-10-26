@@ -6,8 +6,8 @@ import java.util.Formatter;
 public class Main {
 
   public static void main(String[] args) {
-    int capacity = 0;
-    double price = 0;
+    //int capacity = 0;
+    //double price = 0;
 
     if(args.length < 1) {
       System.out.println("Error, usage: java Main.java inputfile");
@@ -16,7 +16,7 @@ public class Main {
     try {
       Scanner s = new Scanner(new File(args[0]));   // read file
 
-      try {     // validate input
+      /*try {     // validate input
         capacity = s.nextInt();
         price = s.nextDouble();
       }catch (java.util.InputMismatchException e) {
@@ -30,12 +30,20 @@ public class Main {
       else if (price <= 0) {
         System.out.println("Error: Price not valid");
         System.exit(1);
-      }
+      }*/
+      System.out.println("Welcome! We have 3 parking lot groups available.\n");
+      YellowLot y = new YellowLot();
+      System.out.println("The YellowLot has a price of "+y.getPrice()+", a capacity of "+y.getCapacity()+", a discount of "+
+              y.getDiscount()+", and their policies are "+y.getPolicies()+".\n");
 
-      ParkingLot pl = new ParkingLot(capacity, price);  // set parking lot
-      System.out.println("This parking lot is $" + price + " the hour. Total capacity: " + capacity);
-      System.out.println("");
+      BlueLot b = new BlueLot();
+      System.out.println("The BlueLot has a price of "+b.getPrice()+", a capacity of "+b.getCapacity()+", a discount of "+
+              b.getDiscount()+", and their policies are "+b.getPolicies()+".\n");
 
+      GreenLot g = new GreenLot();
+      System.out.println("The YellowLot has a price of "+g.getPrice()+", a capacity of "+g.getCapacity()+", a discount of "+
+              g.getDiscount()+", and their policies are "+g.getPolicies()+".\n");
+      ParkingLot pl = new ParkingLot();
       while (s.hasNextLine()) {
         String line = s.nextLine();
         Scanner ls = new Scanner(line);

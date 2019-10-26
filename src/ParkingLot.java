@@ -3,17 +3,41 @@ import java.util.List;
 import java.util.ArrayList;
 
 public class ParkingLot {
-  private int capacity;
-  private double price;
-  private List<Car> lot;
-  private int count;
-  private double total;
 
-  public ParkingLot(int c, double p) {
-    capacity = c;
-    price = p;
-    lot = new ArrayList<Car>();
+  int capacity;
+  double price;
+  List<Car> lot;
+  int count;
+  double total;
+  String policies;
+  double discount;
+
+  public ParkingLot() {
+    //capacity = 0;
+    //price = 0;
+    //lot = null;
+    //discount = 0;
+    //policies = "";
   }
+  public double getPrice() {
+      return price;
+  }
+  public String getPolicies() {
+      return policies;
+  }
+  public double getDiscount() {
+      return discount;
+  }
+  public double getTotal() {
+      return total;
+  }
+  public int getCapacity() {
+      return capacity-count;
+  }
+  public int getCarsLeft() {
+      return lot.size();
+  }
+
   public void entering(Car c) {
       count++;
       if (count <= capacity) {
@@ -56,14 +80,5 @@ public class ParkingLot {
     double totalpay = diff /(1000 % 60)/price;  // 1s simulates hour pay
     System.out.println("Ticket paid for: "+String.format("%.02f", totalpay));
     total += totalpay;  // add profit to total
-  }
-  public double getTotal() {
-      return total;
-  }
-  public int getCapacity() {
-      return capacity-count;
-  }
-  public int getCarsLeft() {
-      return lot.size();
   }
 }
