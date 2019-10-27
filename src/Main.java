@@ -42,8 +42,8 @@ public class Main {
             if (ls.hasNext()) {
               choice = ls.nextInt();
 
-            if (!(choice == 0 || choice == 1 || choice == 2 || choice == 3)) {
-              System.out.println("Error: Choose 1 for YellowLot, 2 for GreenLot, 3 for BlueLot, or 0 for no choice");
+            if (!(choice == 1 || choice == 2 || choice == 3)) {
+              System.out.println("Error: Choose 1 for YellowLot, 2 for GreenLot, 3 for BlueLot");
               continue;
             }
           }
@@ -78,7 +78,7 @@ public class Main {
       s.close();
       System.out.println("End of parking log.");
       System.out.println("Total money made: " + String.format("%.02f", pl.getTotal()));
-      System.out.println("Cars left in lot: " + pl.getCarsLeft());
+      System.out.println("Cars left in lots: " + pl.getCarsLeft());
     } catch (IOException e) {
       e.printStackTrace();
     }

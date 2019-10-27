@@ -16,7 +16,7 @@ public abstract class Groups {
     }
 
     public int getCapacity() {
-        return capacity;
+        return capacity-count;
     }
 
     public double getPrice() {

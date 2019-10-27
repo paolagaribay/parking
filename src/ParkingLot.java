@@ -18,11 +18,12 @@ public class ParkingLot {
     fullLot = new ArrayList<Car>();
 
     System.out.println("Welcome! We have 3 parking lot groups available.");
-    System.out.println("Choose 1 for YellowLot, 2 for GreenLot, 3 for BlueLot, or 0 for no choice.\n");
+      System.out.println("Line should read 'Entering/Leaving CarId Choice(optional)'");
+      System.out.println("Choice: 1 for YellowLot, 2 for GreenLot, 3 for BlueLot, or 0 for no choice.\n");
     System.out.println("YellowLot: price - " + y.getPrice() + ", capacity - " + y.getCapacity() + ", discount - " +
-            y.getDiscount() + ", policies - " + y.getPolicies());
+            y.getDiscount() + ", policies - " + y.getPolicies()+"\n");
     System.out.println("GreenLot: price - " + g.getPrice() + ", capacity - " + g.getCapacity() + ", discount - " +
-            g.getDiscount() + ", policies - " + g.getPolicies());
+            g.getDiscount() + ", policies - " + g.getPolicies()+"\n");
     System.out.println("BlueLot: price - " + b.getPrice() + ", capacity - " + b.getCapacity() + ", discount - " +
             b.getDiscount() + ", policies - " + b.getPolicies() + "\n");
   }
@@ -77,21 +78,25 @@ public class ParkingLot {
       }
   }
   public void parking(Car c, Groups g) {
-      count++;
-      System.out.println("Parking in lot: "+g.getName());
-      g.setCount(1);
-      Date in = new Date();
-      c.setTicket();    // give car ticket
-      c.getTicket().setInTime(in);
-      System.out.println("Ticket "+c.getTicket().getTicketId()+" in time: "+in);
-      double d = getLotDiscount(g.checkDiscount(in), g.getDiscount());
-      c.getTicket().setDis(d);
-      System.out.println("Discount applicable: "+(d*100)+"%");
-      fullLot.add(c);
-      g.getLot().add(c);       // add car to lot
-      g.setCount(1);
-      System.out.println("Car successfully parked.");
-
+      if (!fullLot.contains(c)) {
+          count++;
+          System.out.println("Parking in lot: " + g.getName());
+          g.setCount(1);
+          Date in = new Date();
+          c.setTicket();    // give car ticket
+          c.getTicket().setInTime(in);
+          System.out.println("Ticket " + c.getTicket().getTicketId() + " in time: " + in);
+          double d = getGroupDiscount(g.checkDiscount(in), g.getDiscount());
+          c.getTicket().setDis(d);
+          System.out.println("Discount applicable: " + (d * 100) + "%");
+          fullLot.add(c);
+          g.getLot().add(c);       // add car to lot
+          g.setCount(1);
+          System.out.println("Car successfully parked.");
+      }
+      else {
+          System.out.println("Error: car already in lot");
+      }
   }
   public void leaving(String c) {
       int k = 0;
@@ -125,7 +130,7 @@ public class ParkingLot {
     System.out.println("Ticket paid for: "+String.format("%.02f", totalpay));
     total += totalpay;  // add profit to total
   }
-  public double getLotDiscount(boolean d, double p) {
+  public double getGroupDiscount(boolean d, double p) {
       if (d == true) {
           return p;
       }
@@ -139,11 +144,11 @@ public class ParkingLot {
     public int getCarsLeft() {
         return fullLot.size();
     }
-    public int getLotCapacity(Groups g) {
-      return g.getCapacity();
+    public void getGroupCapacity(Groups g) {
+      System.out.println(g.getName()+ " has a current capacity of: "+g.getCapacity());
     }
-    public String getLotPolicies(Groups g){
-      return g.getPolicies();
+    public void getGroupPrice(Groups g){
+        System.out.println(g.getName()+ " has a price of: "+g.getCapacity());
     }
 
 }
