@@ -4,12 +4,12 @@ import java.util.ArrayList;
 
 public class ParkingLot {
 
-  int count;
-  double total;
-  List<Car> fullLot;
-  YellowLot y;
-  GreenLot g;
-  BlueLot b;
+  private int count;
+  private double total;
+  private List<Car> fullLot;
+  private YellowLot y;
+  private GreenLot g;
+  private BlueLot b;
 
   public ParkingLot() {
     y = new YellowLot();
@@ -92,27 +92,23 @@ public class ParkingLot {
   public void leaving(String c) {
       int k = 0;
 
-      try {
-          for (int i = 0; i < fullLot.size(); i++) {
-              if (fullLot.get(i).getCarId().equals(c)) {    // find car in lot
-                  Date out = new Date();
-                  k = 1;    // flag if found
-                  if (fullLot.get(i).getTicket() != null) { // check ticket
-                      fullLot.get(i).getTicket().setOutTime(out);
-                      System.out.println("Ticket " + fullLot.get(i).getTicket().getTicketId() + " out time: " + out);
-                      pay(fullLot.get(i).getTicket().totalTime(), fullLot.get(i).getGroup().getPrice(), fullLot.get(i).getGroup().getDiscount());  // pay ticket
-                      fullLot.remove(fullLot.get(i));       // remove car from lot
-                      fullLot.get(i).getGroup().getLot().remove(fullLot.get(i));
-                      fullLot.get(i).getGroup().setCount(-1);
-                      count--;
-                      System.out.println("Car successfully left.");
-                  } else {
-                      System.out.println("Error: No ticket shown. Return with ticket.");
-                  }
+      for (int i = 0; i < fullLot.size(); i++) {
+          if (fullLot.get(i).getCarId().equals(c)) {    // find car in lot
+              Date out = new Date();
+              k = 1;    // flag if found
+              if (fullLot.get(i).getTicket() != null) { // check ticket
+                  fullLot.get(i).getTicket().setOutTime(out);
+                  System.out.println("Ticket " + fullLot.get(i).getTicket().getTicketId() + " out time: " + out);
+                  pay(fullLot.get(i).getTicket().totalTime(), fullLot.get(i).getGroup().getPrice(), fullLot.get(i).getGroup().getDiscount());  // pay ticket
+                  fullLot.get(i).getGroup().setCount(-1);
+                  fullLot.get(i).getGroup().getLot().remove(fullLot.get(i));
+                  fullLot.remove(fullLot.get(i));       // remove car from lot
+                  count--;
+                  System.out.println("Car successfully left.");
+              } else {
+                  System.out.println("Error: No ticket shown. Return with ticket.");
               }
           }
-      }catch (IndexOutOfBoundsException e) {
-          System.out.println("Car successfully left.");
       }
       if (k != 1) {
           System.out.println("Error: Car not found in lot.");
@@ -129,6 +125,12 @@ public class ParkingLot {
     }
     public int getCarsLeft() {
         return fullLot.size();
+    }
+    public int getLotCapacity(Groups g) {
+      return g.getCapacity();
+    }
+    public String getLotPolicies(Groups g){
+      return g.getPolicies();
     }
 
 }
