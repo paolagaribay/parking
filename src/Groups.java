@@ -1,7 +1,8 @@
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Date;
 
-public class Groups {
+public abstract class Groups {
     String name;
     int capacity;
     double price;
@@ -10,9 +11,6 @@ public class Groups {
     List<Car> lot;
     int count;
 
-    public Groups() {
-
-    }
     public String getName() {
         return name;
     }
@@ -47,4 +45,6 @@ public class Groups {
             return false;
         }
     }
+    public abstract boolean checkDiscount(Date d);
+
 }

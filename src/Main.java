@@ -15,6 +15,7 @@ public class Main {
       System.out.println("Error, usage: java Main.java inputfile");
       System.exit(1);
     }
+
     try {
       Scanner s = new Scanner(new File(args[0]));   // read file
 

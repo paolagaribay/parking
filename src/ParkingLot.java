@@ -7,9 +7,9 @@ public class ParkingLot {
   private int count;
   private double total;
   private List<Car> fullLot;
-  private YellowLot y;
-  private GreenLot g;
-  private BlueLot b;
+  private Groups y;
+  private Groups g;
+  private Groups b;
 
   public ParkingLot() {
     y = new YellowLot();
@@ -17,14 +17,14 @@ public class ParkingLot {
     b = new BlueLot();
     fullLot = new ArrayList<Car>();
 
-    System.out.println("Welcome! We have 3 parking lot groups available.\n");
+    System.out.println("Welcome! We have 3 parking lot groups available.");
     System.out.println("Choose 1 for YellowLot, 2 for GreenLot, 3 for BlueLot, or 0 for no choice.\n");
-    System.out.println("The YellowLot has a price of " + y.getPrice() + ", a capacity of " + y.getCapacity() + ", a discount of " +
-            y.getDiscount() + ", and their policies are " + y.getPolicies() + ".\n");
-    System.out.println("The GreenLot has a price of " + g.getPrice() + ", a capacity of " + g.getCapacity() + ", a discount of " +
-            g.getDiscount() + ", and their policies are " + g.getPolicies() + ".\n");
-    System.out.println("The BlueLot has a price of " + b.getPrice() + ", a capacity of " + b.getCapacity() + ", a discount of " +
-            b.getDiscount() + ", and their policies are " + b.getPolicies() + ".\n");
+    System.out.println("YellowLot: price - " + y.getPrice() + ", capacity - " + y.getCapacity() + ", discount - " +
+            y.getDiscount() + ", policies - " + y.getPolicies());
+    System.out.println("GreenLot: price - " + g.getPrice() + ", capacity - " + g.getCapacity() + ", discount - " +
+            g.getDiscount() + ", policies - " + g.getPolicies());
+    System.out.println("BlueLot: price - " + b.getPrice() + ", capacity - " + b.getCapacity() + ", discount - " +
+            b.getDiscount() + ", policies - " + b.getPolicies() + "\n");
   }
   public void entering(Car c, int choice) {
       if (choice == 0) {
@@ -79,14 +79,18 @@ public class ParkingLot {
   public void parking(Car c, Groups g) {
       count++;
       System.out.println("Parking in lot: "+g.getName());
-          g.setCount(1);
-          Date in = new Date();
-          c.setTicket();    // give car ticket
-          System.out.println("Ticket "+c.getTicket().getTicketId()+" in time: "+in);
-          c.getTicket().setInTime(in);
-          fullLot.add(c);
-          g.getLot().add(c);       // add car to lot
-          System.out.println("Car successfully parked.");
+      g.setCount(1);
+      Date in = new Date();
+      c.setTicket();    // give car ticket
+      c.getTicket().setInTime(in);
+      System.out.println("Ticket "+c.getTicket().getTicketId()+" in time: "+in);
+      double d = getLotDiscount(g.checkDiscount(in), g.getDiscount());
+      c.getTicket().setDis(d);
+      System.out.println("Discount applicable: "+(d*100)+"%");
+      fullLot.add(c);
+      g.getLot().add(c);       // add car to lot
+      g.setCount(1);
+      System.out.println("Car successfully parked.");
 
   }
   public void leaving(String c) {
@@ -99,7 +103,7 @@ public class ParkingLot {
               if (fullLot.get(i).getTicket() != null) { // check ticket
                   fullLot.get(i).getTicket().setOutTime(out);
                   System.out.println("Ticket " + fullLot.get(i).getTicket().getTicketId() + " out time: " + out);
-                  pay(fullLot.get(i).getTicket().totalTime(), fullLot.get(i).getGroup().getPrice(), fullLot.get(i).getGroup().getDiscount());  // pay ticket
+                  pay(fullLot.get(i).getTicket().totalTime(), fullLot.get(i).getGroup().getPrice(), fullLot.get(i).getTicket().getDis());  // pay ticket
                   fullLot.get(i).getGroup().setCount(-1);
                   fullLot.get(i).getGroup().getLot().remove(fullLot.get(i));
                   fullLot.remove(fullLot.get(i));       // remove car from lot
@@ -115,10 +119,19 @@ public class ParkingLot {
       }
   }
   public void pay(long diff, double p, double d) {
-    double t = diff /(1000 % 60)/p;  // 1s simulates hour pay
+    double t = diff/1000 * p;  // 1s simulates hour pay
       double totalpay = t - (t*d);
+
     System.out.println("Ticket paid for: "+String.format("%.02f", totalpay));
     total += totalpay;  // add profit to total
+  }
+  public double getLotDiscount(boolean d, double p) {
+      if (d == true) {
+          return p;
+      }
+      else {
+          return 0;
+      }
   }
     public double getTotal() {
         return total;
