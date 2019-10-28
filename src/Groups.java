@@ -1,6 +1,5 @@
 import java.util.List;
-import java.util.ArrayList;
-import java.util.Date;
+import java.util.Calendar;
 
 public abstract class Groups {
     String name;
@@ -45,6 +44,6 @@ public abstract class Groups {
             return false;
         }
     }
-    public abstract boolean checkDiscount(Date d);
+    public abstract boolean checkDiscount(Calendar d);
 
 }

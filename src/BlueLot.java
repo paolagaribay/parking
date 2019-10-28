@@ -1,6 +1,5 @@
-import java.util.List;
+import java.util.Calendar;
 import java.util.ArrayList;
-import java.util.Date;
 
 public class BlueLot extends Groups {
     public BlueLot() {
@@ -12,8 +11,8 @@ public class BlueLot extends Groups {
         policies = "This is our valet option. Free parking on the 1st day of every month. Open 24/7. Full security. No refunds.";
         count = 0;
     }
-    public boolean checkDiscount(Date d) {
-        int i = d.getDate();
+    public boolean checkDiscount(Calendar d) {
+        int i = d.get(d.DATE);
         if (i == 1) {
             return true;
         }

@@ -1,8 +1,8 @@
-import java.util.Date;
+import java.util.Calendar;
 
 public class Ticket {
-    private Date inTime;
-    private Date outTime;
+    private Calendar inTime;
+    private Calendar outTime;
     private String ticketId;
     private long totalTime;
     private double d;
@@ -10,23 +10,23 @@ public class Ticket {
     public Ticket(String id) {
         ticketId = id;
     }
-    public void setInTime(Date in) {
+    public void setInTime(Calendar in) {
         inTime = in;
     }
-    public void setOutTime(Date out) {
+    public void setOutTime(Calendar out) {
         outTime = out;
     }
-    public Date getInTime() {
+    public Calendar getInTime() {
         return inTime;
     }
-    public Date getOutTime() {
+    public Calendar getOutTime() {
         return outTime;
     }
     public String getTicketId() {
       return ticketId;
     }
     public long totalTime() {   // calculate time difference
-        totalTime = outTime.getTime() - inTime.getTime();
+        totalTime = outTime.getTimeInMillis() - inTime.getTimeInMillis();
         return totalTime;
     }
     public void setDis(double d) {

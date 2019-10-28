@@ -1,9 +1,8 @@
-import java.util.Date;
+import java.util.Calendar;
 import java.util.List;
 import java.util.ArrayList;
 
 public class ParkingLot {
-
   private int count;
   private double total;
   private List<Car> fullLot;
@@ -82,10 +81,10 @@ public class ParkingLot {
           count++;
           System.out.println("Parking in lot: " + g.getName());
           g.setCount(1);
-          Date in = new Date();
+          Calendar in = Calendar.getInstance();
           c.setTicket();    // give car ticket
           c.getTicket().setInTime(in);
-          System.out.println("Ticket " + c.getTicket().getTicketId() + " in time: " + in);
+          System.out.println("Ticket " + c.getTicket().getTicketId() + " in time: " + in.getTime());
           double d = getGroupDiscount(g.checkDiscount(in), g.getDiscount());
           c.getTicket().setDis(d);
           System.out.println("Discount applicable: " + (d * 100) + "%");
@@ -103,11 +102,11 @@ public class ParkingLot {
 
       for (int i = 0; i < fullLot.size(); i++) {
           if (fullLot.get(i).getCarId().equals(c)) {    // find car in lot
-              Date out = new Date();
+              Calendar out = Calendar.getInstance();
               k = 1;    // flag if found
               if (fullLot.get(i).getTicket() != null) { // check ticket
                   fullLot.get(i).getTicket().setOutTime(out);
-                  System.out.println("Ticket " + fullLot.get(i).getTicket().getTicketId() + " out time: " + out);
+                  System.out.println("Ticket " + fullLot.get(i).getTicket().getTicketId() + " out time: " + out.getTime());
                   pay(fullLot.get(i).getTicket().totalTime(), fullLot.get(i).getGroup().getPrice(), fullLot.get(i).getTicket().getDis());  // pay ticket
                   fullLot.get(i).getGroup().setCount(-1);
                   fullLot.get(i).getGroup().getLot().remove(fullLot.get(i));
