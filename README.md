@@ -1,7 +1,9 @@
 # parking
 COSC 4353: Assignment #3/4
 
-usage: javac main.java / java main.java textFile.txt
+usage:  cd src/main/java 
+        javac main.java  
+        java main.java textFile.txt
 
 Your goal is to model a parking lot using object-oriented programming principles. This project is relatively open-ended; we will be grading based on your use of OOP principles. Assumptions:
 
