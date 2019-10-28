@@ -1,21 +1,20 @@
-Entering car1 1
-Entering car2 2
-Entering car3 3
-Entering car4
-Leaving car2
-Entering car5 1
-Entering car6 1
-Leaving car3
-Entering car7
-Entering car8 3
-Entering car9
-Leaving car7
-Entering car10 2
-Leaving car9
-Entering car11 1
-Entering car12
-Leaving car1
-Leaving car12
-Leaving car11
-Leaving car10
-Leaving car4
+Entering WNM-9203 3
+Entering NKL-3298
+Leaving WNM-9203
+Entering JFK-1298 3
+Entering NKD-2378 b
+b
+Leaving NKL-3298
+Entering NME-1238 2
+Entering NKD-2396 green
+Leaving JFK-1298
+Leaving NKD-2378
+Entering EJK-1267 3
+Leaving NME-1238
+Leaving EJK-1267
+Entering UIW-8620 y
+Entering WUI-1269
+Entering NCJ-2379
+Leaving UIW-8620
+Leaving WUI-1269
+Leaving NCJ-2379

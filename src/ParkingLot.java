@@ -16,17 +16,16 @@ public class ParkingLot {
         b = new BlueLot();
         fullLot = new ArrayList<Car>();
 
-        System.out.println("Welcome! We have 3 parking lot groups available.");  // print welcome details
+        System.out.println("Welcome! We have 3 parking lot groups available.");  // print group details
         System.out.println("Line should read 'Entering/Leaving CarId Choice(optional when entering)'");
         System.out.println("Choice: 'y' to hear YellowLot details, 'g' to hear GreenLot details, 'b' to hear BlueLot details" +
-                " or '1' for YellowLot, '2' for GreenLot, '3' for BlueLot" +
-                " 0 for no choice.\n");
+                " or '1' for YellowLot, '2' for GreenLot, '3' for BlueLot\n");
         System.out.println("YellowLot: price - " + y.getPrice() + ", capacity - " + y.getCapacity() + ", discount - " +
-                y.getDiscount() + ", policies - " + y.getPolicies());
+                (100*y.getDiscount()) + "%, policies - " + y.getPolicies());
         System.out.println("GreenLot: price - " + g.getPrice() + ", capacity - " + g.getCapacity() + ", discount - " +
-                g.getDiscount() + ", policies - " + g.getPolicies());
+                (100*g.getDiscount()) + "%, policies - " + g.getPolicies());
         System.out.println("BlueLot: price - " + b.getPrice() + ", capacity - " + b.getCapacity() + ", discount - " +
-                b.getDiscount() + ", policies - " + b.getPolicies()+"\n");
+                (100*b.getDiscount()) + "%, policies - " + b.getPolicies()+"\n");
     }
     public void entering(Car c, String choice) { // choose lot or print details
         if (choice.equals("y")) {
@@ -79,7 +78,7 @@ public class ParkingLot {
         System.out.println(g.getName()+ " has a current capacity of: "+g.getCapacity());
     }
     public void getGroupPrice(Groups g){
-        System.out.println(g.getName()+ " has a price of: "+g.getCapacity());
+        System.out.println(g.getName()+ " has a price of: "+g.getPrice());
     }
     public Groups getBestLot() {  // choose cheapest available lot
         if(!y.isFull()) {
@@ -110,7 +109,6 @@ public class ParkingLot {
             System.out.println("Discount applicable: " + (d * 100) + "%");
             fullLot.add(c);
             g.getLot().add(c);       // add car to lot
-            g.setCount(1);
             System.out.println("Car successfully parked.");
         }
         else {

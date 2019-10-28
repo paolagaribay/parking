@@ -35,23 +35,33 @@ public class Main {
             String p = ls.next();    // check if entering or leaving
             String carId = ls.next();    // get car id
             String choice = "";
+            int i = 0;
 
             if (ls.hasNext()) {   // check choice
               choice = ls.next();
 
               if (!(choice.equals("y") || choice.equals("g") || choice.equals("b") ||
                       choice.equals("1") || choice.equals("2") || choice.equals("3"))) {
-                System.out.println("Error: Choose 'y' to hear YellowLot details, 'g' to hear GreenLot details, 'b' to hear BlueLot details" +
+                System.out.println("Error: Optional choice when entering - 'y' to hear YellowLot details, " +
+                        "'g' to hear GreenLot details, 'b' to hear BlueLot details" +
                         " or '1' for YellowLot, '2' for GreenLot, '3' for BlueLot\n");
-                continue;
+                i = 1;
+                if (ls.hasNext()) {   // check if more input
+                  while (ls.hasNext()) {
+                    ls.next();
+                  }
+                  i = 1;
+                }
+              }
+              if (ls.hasNext()) {   // check if more input
+                System.out.println("Error: extra input in line\n");
+                while (ls.hasNext()) {
+                  ls.next();
+                }
+                i = 1;
               }
             }
-
-            if (ls.hasNext()) {   // check if more input
-              System.out.println("Error: extra input in line. Line should read 'Entering/Leaving CarID Choice(optional when entering)'\n");
-              while (ls.hasNext()) {
-                ls.next();
-              }
+            if (i ==1) {
               continue;
             }
 
@@ -65,12 +75,13 @@ public class Main {
                 System.out.println("Car " + carId + " is leaving the lot.");
                 pl.leaving(carId);
               } else {
-                System.out.println("Error: Line should read 'Leaving CarID'");
+                System.out.println("Error: Line should read 'Leaving CarID'\n");
                 continue;
               }
             }
             else {
-              System.out.println("Error: line should start with 'Entering' or 'Leaving'");
+              System.out.println("Error: line should start with 'Entering' or 'Leaving'\n");
+              continue;
             }
             System.out.println("");
 

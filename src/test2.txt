@@ -1,15 +1,15 @@
 Entering
-Entering car1
-Entering car2 2
-car2
-Leaving car1
-Entering car3 b
-Entering car4
-Leaving car2 0
-Entering car5
-Entering car6 kdlj
-Leaving car4
-Entering car7 1 dksl
-Entering car8 1
-Elntering car9
-Leaving car8
+Entering JKD-8492
+Entering JKL-8907 2
+LDM-8907
+Leaving JKD-8492
+Entering MKE-9877 b
+Entering IUO-9896
+Leaving JKL-8907 2
+Entering ION-9896
+Entering KNS-2542 kdlj
+Leaving IUO-9896
+Entering DGB-8854 1 dksl
+Entering NMS-9775 1
+Elntering NMW-7924
+Leaving NMS-9775
