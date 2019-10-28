@@ -34,12 +34,15 @@ public class Main {
           try {
             String p = ls.next();    // check if entering or leaving
             String carId = ls.next();    // get car id
-            int choice = 0;
-            if (ls.hasNext()) {
-              choice = ls.nextInt();
+            String choice = "";
 
-            if (!(choice == 1 || choice == 2 || choice == 3)) {
-              System.out.println("Error: Choose 1 for YellowLot, 2 for GreenLot, 3 for BlueLot");
+            if (ls.hasNext()) {
+              choice = ls.next();
+
+            if (!(choice.equals("y") || choice.equals("g") || choice.equals("b") ||
+                    choice.equals("1") || choice.equals("2") || choice.equals("3"))) {
+              System.out.println("Error: Choose '1' for YellowLot, '2' for GreenLot, '3' for BlueLot or " +
+                      "'y' to hear YellowLot details, 'g' to hear GreenLot details, 'b' to hear BlueLot details");
               continue;
             }
           }

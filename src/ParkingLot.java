@@ -26,14 +26,14 @@ public class ParkingLot {
     System.out.println("BlueLot: price - " + b.getPrice() + ", capacity - " + b.getCapacity() + ", discount - " +
             b.getDiscount() + ", policies - " + b.getPolicies() + "\n");
   }
-  public void entering(Car c, int choice) {
-      if (choice == 0) {
+  public void entering(Car c, String choice) {
+      if (choice.equals("")) {
           if(getBestLot()!= null) {
               c.setGroup(getBestLot());
               parking(c, getBestLot());
           }
       }
-      else if (choice == 1) {
+      else if (choice.equals("1")) {
           if(!y.isFull()) {
               c.setGroup(y);
               parking(c, y);
@@ -42,7 +42,7 @@ public class ParkingLot {
               System.out.println("Error: YellowLot Full");
           }
       }
-      else if (choice == 2) {
+      else if (choice.equals("2")) {
           if(!g.isFull()) {
               c.setGroup(g);
               parking(c, g);
@@ -51,7 +51,7 @@ public class ParkingLot {
               System.out.println("Error: GreenLot Full");
           }
       }
-      else if (choice == 3) {
+      else if (choice.equals("3")) {
           if(!b.isFull()) {
               c.setGroup(b);
               parking(c, b);
@@ -59,6 +59,18 @@ public class ParkingLot {
           else {
               System.out.println("Error: BlueLot Full");
           }
+      }
+      else if (choice.equals("y")) {
+          getGroupPrice(b);
+          getGroupCapacity(b);
+      }
+      else if (choice.equals("g")) {
+          getGroupPrice(b);
+          getGroupCapacity(b);
+      }
+      else if (choice.equals("b")) {
+          getGroupPrice(b);
+          getGroupCapacity(b);
       }
   }
   public Groups getBestLot() {
