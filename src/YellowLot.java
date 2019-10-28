@@ -12,7 +12,7 @@ public class YellowLot extends Groups {
         count = 0;
     }
     public boolean checkDiscount(Calendar d) {
-        int i = d.get(d.HOUR_OF_DAY);
+        int i = d.get(d.HOUR_OF_DAY);   // discount after 5pm
         if (i > 19) {
             return true;
         }

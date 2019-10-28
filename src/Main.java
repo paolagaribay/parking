@@ -36,39 +36,46 @@ public class Main {
             String carId = ls.next();    // get car id
             String choice = "";
 
-            if (ls.hasNext()) {
+            if (ls.hasNext()) {   // check choice
               choice = ls.next();
 
-            if (!(choice.equals("y") || choice.equals("g") || choice.equals("b") ||
-                    choice.equals("1") || choice.equals("2") || choice.equals("3"))) {
-              System.out.println("Error: Choose '1' for YellowLot, '2' for GreenLot, '3' for BlueLot or " +
-                      "'y' to hear YellowLot details, 'g' to hear GreenLot details, 'b' to hear BlueLot details");
-              continue;
+              if (!(choice.equals("y") || choice.equals("g") || choice.equals("b") ||
+                      choice.equals("1") || choice.equals("2") || choice.equals("3"))) {
+                System.out.println("Error: Choose 'y' to hear YellowLot details, 'g' to hear GreenLot details, 'b' to hear BlueLot details" +
+                        " or '1' for YellowLot, '2' for GreenLot, '3' for BlueLot\n");
+                continue;
+              }
             }
-          }
 
-            if (ls.hasNext()) {
-              System.out.println("Error: extra input in line. Line should read 'Entering/Leaving CarID Choice(optional)'\n");
+            if (ls.hasNext()) {   // check if more input
+              System.out.println("Error: extra input in line. Line should read 'Entering/Leaving CarID Choice(optional when entering)'\n");
               while (ls.hasNext()) {
                 ls.next();
               }
               continue;
             }
 
-            if (p.equals("Entering")) { // park car
+            if (p.equals("Entering")) { // enter lot
               Car c = new Car(carId);
               System.out.println("Car " + carId + " has arrived at lot.");
               pl.entering(c, choice);
-            } else if (p.equals("Leaving")) { // remove car
-              System.out.println("Car " + carId + " is leaving the lot.");
-              pl.leaving(carId);
-            } else {
+            }
+            else if (p.equals("Leaving")) { // remove car
+              if (choice.equals("")) {
+                System.out.println("Car " + carId + " is leaving the lot.");
+                pl.leaving(carId);
+              } else {
+                System.out.println("Error: Line should read 'Leaving CarID'");
+                continue;
+              }
+            }
+            else {
               System.out.println("Error: line should start with 'Entering' or 'Leaving'");
             }
             System.out.println("");
 
           } catch (java.util.NoSuchElementException e) {
-            System.out.println("Error: line should read 'Entering/Leaving CarID Choice'\n");
+            System.out.println("Error: line should read 'Entering/Leaving CarID Choice(optional when entering)'\n");
             continue;
           }
         }

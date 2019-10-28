@@ -13,23 +13,18 @@ public abstract class Groups {
     public String getName() {
         return name;
     }
-
     public int getCapacity() {
         return capacity-count;
     }
-
     public double getPrice() {
         return price;
     }
-
     public double getDiscount() {
         return discount;
     }
-
     public String getPolicies() {
         return policies;
     }
-
     public List<Car> getLot() {
         return lot;
     }
@@ -45,5 +40,4 @@ public abstract class Groups {
         }
     }
     public abstract boolean checkDiscount(Calendar d);
-
 }

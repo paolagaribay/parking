@@ -8,11 +8,11 @@ public class GreenLot extends Groups {
         price = 7;
         discount = .50;
         lot = new ArrayList<Car>();
-        policies = "This is our garage option. A 50% discount is available during the weekends.Open 24/7. Fully covered. No refunds.";
+        policies = "This is our garage option. A 50% discount is available if parking SAT/SUN. Open 24/7. Fully covered. No refunds.";
         count = 0;
     }
     public boolean checkDiscount(Calendar d) {
-        int i = d.get(d.DAY_OF_WEEK);
+        int i = d.get(d.DAY_OF_WEEK);   // discount on sun & sat
         if (i == 1 || i == 7) {
             return true;
         }

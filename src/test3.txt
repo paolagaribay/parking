@@ -1,15 +1,20 @@
-7
-10
-Entering DKV-6052 jkld
-Entering BRH-8108
-SPR-6518
-Leaving DKV-6052
-Entering DJK-3245
-Leaving BRH-8108
-Entering NWM-9276
-Entering BDW-9430
-Entering RGW-6612
-Leaving RGW-6612
-Entering NEI-5453
-Entering NEK-3243
-Entering EOD-3245
+Entering Car1
+Entering Car2 1
+Entering Car3 2
+Leaving Car1
+Entering Car2 2
+Entering Car4 1
+Entering Car5 b
+Entering Car6
+Entering Car7 3
+Leaving Car3
+Entering Car8
+Entering Car9
+Entering Car10
+Leaving Car7
+Entering Car11
+Entering Car12
+Entering Car13 1
+Leaving Car3
+Leaving Car10
+Leaving Car14

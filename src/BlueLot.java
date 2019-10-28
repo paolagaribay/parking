@@ -12,7 +12,7 @@ public class BlueLot extends Groups {
         count = 0;
     }
     public boolean checkDiscount(Calendar d) {
-        int i = d.get(d.DATE);
+        int i = d.get(d.DAY_OF_MONTH);  // discount on the 1st
         if (i == 1) {
             return true;
         }
